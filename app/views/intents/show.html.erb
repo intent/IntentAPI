@@ -6,6 +6,21 @@
 </p>
 
 <p>
+  <strong>Associated Intents:</strong>
+  <% if @intent.apps.present? %>
+  <ol>
+  	<% @intent.apps.each do |app| %>
+  		<li><%= app.name %></li>
+  	<% end %>
+  </ol>
+  <% else %>
+  	No Associated Apps.
+  <% end %>
+
+</p>
+
+
+<p>
   <%= link_to "Edit", edit_intent_path(@intent) %> |
   <%= link_to "Destroy", @intent, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", intents_path %>

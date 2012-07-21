@@ -3,10 +3,22 @@
 <table>
   <tr>
     <th>Name</th>
+    <th>Associated Apps</th>
   </tr>
   <% for intent in @intents %>
     <tr>
       <td><%= intent.name %></td>
+      <td>
+        <% if intent.apps.present? %>
+        <ul>
+          <% intent.apps.each do |app| %>
+            <li><%= app.name %></li>
+          <% end %>
+        </ul>
+        <% else %>
+          No Associated Apps.
+        <% end %>
+      </td> 
       <td><%= link_to "Show", intent %></td>
       <td><%= link_to "Edit", edit_intent_path(intent) %></td>
       <td><%= link_to "Destroy", intent, :confirm => 'Are you sure?', :method => :delete %></td>

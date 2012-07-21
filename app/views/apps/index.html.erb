@@ -4,13 +4,25 @@
   <tr>
     <th>Name</th>
     <th>Description</th>
-    <th>Url Prefix</th>
+    <th>URL Prefix</th>
+    <th>Intents</th>
   </tr>
   <% for app in @apps %>
     <tr>
       <td><%= app.name %></td>
       <td><%= app.description %></td>
       <td><%= app.url_prefix %></td>
+      <td>
+        <% if app.intents.present? %>
+        <ul>
+          <% app.intents.each do |intent| %>
+            <li><%= intent.name %></li>
+          <% end %>
+        </ul>
+        <% else %>
+          No Associated Intents.
+        <% end %>
+      </td>
       <td><%= link_to "Show", app %></td>
       <td><%= link_to "Edit", edit_app_path(app) %></td>
       <td><%= link_to "Destroy", app, :confirm => 'Are you sure?', :method => :delete %></td>

@@ -9,8 +9,22 @@
   <%= @app.description %>
 </p>
 <p>
-  <strong>Url Prefix:</strong>
+  <strong>URL Prefix:</strong>
   <%= @app.url_prefix %>
+</p>
+
+<p>
+  <strong>Associated Intents:</strong>
+  <% if @app.intents.present? %>
+  <ol>
+  	<% @app.intents.each do |intent| %>
+  		<li><%= intent.name %></li>
+  	<% end %>
+  </ol>
+  <% else %>
+  	No Associated Intents.
+  <% end %>
+  
 </p>
 
 <p>
