@@ -1,0 +1,12 @@
+<% title "Intent" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @intent.name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_intent_path(@intent) %> |
+  <%= link_to "Destroy", @intent, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", intents_path %>
+</p>

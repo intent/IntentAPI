@@ -1,0 +1,17 @@
+<% title "Intents" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for intent in @intents %>
+    <tr>
+      <td><%= intent.name %></td>
+      <td><%= link_to "Show", intent %></td>
+      <td><%= link_to "Edit", edit_intent_path(intent) %></td>
+      <td><%= link_to "Destroy", intent, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Intent", new_intent_path %></p>

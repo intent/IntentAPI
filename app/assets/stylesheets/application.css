@@ -87,6 +87,9 @@ body {
 	font-size: 14px;
 }
 
+strong { font-weight: bold;}
+p { margin-bottom: 1em; }
+
 .wrap {
 	width: 912px;
 	margin:0 auto;
