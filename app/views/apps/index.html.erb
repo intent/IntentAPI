@@ -1,0 +1,21 @@
+<% title "Apps" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Url Prefix</th>
+  </tr>
+  <% for app in @apps %>
+    <tr>
+      <td><%= app.name %></td>
+      <td><%= app.description %></td>
+      <td><%= app.url_prefix %></td>
+      <td><%= link_to "Show", app %></td>
+      <td><%= link_to "Edit", edit_app_path(app) %></td>
+      <td><%= link_to "Destroy", app, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New App", new_app_path %></p>

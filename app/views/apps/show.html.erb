@@ -1,0 +1,20 @@
+<% title "App" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @app.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @app.description %>
+</p>
+<p>
+  <strong>Url Prefix:</strong>
+  <%= @app.url_prefix %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_app_path(@app) %> |
+  <%= link_to "Destroy", @app, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", apps_path %>
+</p>

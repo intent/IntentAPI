@@ -151,3 +151,9 @@ body {
 .error_messages ul {
   margin: 0;
 }
+
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 1em;
+}
