@@ -12,13 +12,18 @@
 # Configure Using Gemfile
 # gem 'pg'
 #
+# If you need help running PostgreSQL, try the PostgreSQL app from Github
+# or read Paul Mederos' article at:
+# http://paulmederos.com/post/22562973367/
+#
+
 development:
   adapter: postgresql
   encoding: unicode
   database: iOSIntent_development
   pool: 5
-  username: paul
-  password:
+  username: # Your username here
+  password: # Your password here
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
