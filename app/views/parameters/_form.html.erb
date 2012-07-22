@@ -8,5 +8,17 @@
     <%= f.label :content %><br />
     <%= f.text_field :content %>
   </p>
+
+  <p>
+    Is used in following Intents:<br /><br />
+    <%= hidden_field_tag "parameter[intent_ids][]", nil %>
+    <% Intent.all.each do |intent| %>
+      <%= check_box_tag "parameter[intent_ids][]", intent.id, 
+                        @parameter.intent_ids.include?(intent.id), 
+                        id: dom_id(intent) %>
+      <%= label_tag dom_id(intent), "#{intent.name}" %><br>
+    <% end %>
+  </p>
+
   <p><%= f.submit %></p>
 <% end %>

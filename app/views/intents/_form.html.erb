@@ -15,5 +15,16 @@
       <%= label_tag dom_id(app), app.name %><br>
     <% end %>
   </p> 
+
+  <p>
+    Has following Parameters:<br /><br />
+    <%= hidden_field_tag "intent[parameter_ids][]", nil %>
+    <% Parameter.all.each do |parameter| %>
+      <%= check_box_tag "intent[parameter_ids][]", parameter.id, 
+                        @intent.parameter_ids.include?(parameter.id), 
+                        id: dom_id(parameter) %>
+      <%= label_tag dom_id(parameter), "#{parameter.name} [#{parameter.content}]" %><br>
+    <% end %>
+  </p> 
   <p><%= f.submit %></p>
 <% end %>

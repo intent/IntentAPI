@@ -6,7 +6,7 @@
 </p>
 
 <p>
-  <strong>Associated Intents:</strong>
+  <strong>Associated Apps:</strong>
   <% if @intent.apps.present? %>
   <ol>
   	<% @intent.apps.each do |app| %>
@@ -16,7 +16,19 @@
   <% else %>
   	No Associated Apps.
   <% end %>
+</p>
 
+<p>
+  <strong>Uses following Parameters:</strong>
+  <% if @intent.parameters.present? %>
+  <ol>
+    <% @intent.parameters.each do |parameter| %>
+      <li><%= parameter.name %></li>
+    <% end %>
+  </ol>
+  <% else %>
+    Does not use any parameters.
+  <% end %>
 </p>
 
 

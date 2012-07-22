@@ -10,6 +10,19 @@
 </p>
 
 <p>
+  <strong>Used in following Intents:</strong>
+  <% if @parameter.intents.present? %>
+  <ol>
+  	<% @parameter.intents.each do |intent| %>
+  		<li><%= intent.name %> [<%= link_to "Link", intent %>]</li>
+  	<% end %>
+  </ol>
+  <% else %>
+  	No Associated Intents.
+  <% end %>
+</p>
+
+<p>
   <%= link_to "Edit", edit_parameter_path(@parameter) %> |
   <%= link_to "Destroy", @parameter, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", parameters_path %>
