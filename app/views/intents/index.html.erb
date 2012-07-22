@@ -4,10 +4,12 @@
   <tr>
     <th>Name</th>
     <th>Associated Apps</th>
+    <th>Parameter Names [and Content]</th>
   </tr>
   <% for intent in @intents %>
     <tr>
       <td><%= intent.name %></td>
+
       <td>
         <% if intent.apps.present? %>
         <ul>
@@ -19,6 +21,19 @@
           No Associated Apps.
         <% end %>
       </td> 
+
+      <td>
+        <% if intent.parameters.present? %>
+        <ul>
+          <% intent.parameters.each do |parameter| %>
+            <li><%= "#{parameter.name} [#{parameter.content}]" %> </li>
+          <% end %>
+        </ul>
+        <% else %>
+          No Parameters.
+        <% end %>
+      </td> 
+
       <td><%= link_to "Show", intent %></td>
       <td><%= link_to "Edit", edit_intent_path(intent) %></td>
       <td><%= link_to "Destroy", intent, :confirm => 'Are you sure?', :method => :delete %></td>

@@ -4,11 +4,27 @@
   <tr>
     <th>Name</th>
     <th>Content</th>
+    <th>Intents used in</th>
   </tr>
   <% for parameter in @parameters %>
     <tr>
+
       <td><%= parameter.name %></td>
+
       <td><%= parameter.content %></td>
+      
+      <td>
+        <% if parameter.intents.present? %>
+        <ul>
+          <% parameter.intents.each do |intent| %>
+            <li><%= "#{intent.name}" %> </li>
+          <% end %>
+        </ul>
+        <% else %>
+          Not used in any Intents.
+        <% end %>
+      </td> 
+
       <td><%= link_to "Show", parameter %></td>
       <td><%= link_to "Edit", edit_parameter_path(parameter) %></td>
       <td><%= link_to "Destroy", parameter, :confirm => 'Are you sure?', :method => :delete %></td>
