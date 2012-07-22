@@ -9,8 +9,18 @@
     <%= f.text_area :description %>
   </p>
   <p>
-    <%= f.label :url_prefix %><br />
+    <%= f.label :url_prefix, "URL Prefix" %><br />
     <%= f.text_field :url_prefix %>
   </p>
+  <p>
+    Associated with Intents:<br /><br />
+    <%= hidden_field_tag "app[intent_ids][]", nil %>
+    <% Intent.all.each do |intent| %>
+      <%= check_box_tag "app[intent_ids][]", intent.id, 
+                        @app.intent_ids.include?(intent.id), 
+                        id: dom_id(intent) %>
+      <%= label_tag dom_id(intent), intent.name %><br>
+    <% end %>
+  </p> 
   <p><%= f.submit %></p>
 <% end %>

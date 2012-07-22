@@ -2,6 +2,10 @@ class AppsController < ApplicationController
   def index
     @apps = App.all
     
+    respond_to do |format|
+      format.html
+      format.json { render json: @apps }
+    end
   end
 
   def show

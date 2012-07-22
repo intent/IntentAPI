@@ -9,11 +9,24 @@
   </head>
   <body>
     <div class="wrap">
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <% end %>
-      <%= content_tag :h1, yield(:title) if show_title? %>
-      <%= yield %>
+      <header>
+        <nav role="navigation">
+          <ul>
+            <li><%= link_to "Home", root_url %></li>
+            <li><%= link_to "Apps", apps_url %></li>
+            <li><%= link_to "Intents", intents_url %></li>
+          </ul>
+        </nav>         
+      </header>
+
+      <section>
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <% end %>
+
+        <%= content_tag :h1, yield(:title) if show_title? %>
+        <%= yield %>
+      </section>
     </div>
   </body>
 </html>

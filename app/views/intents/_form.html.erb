@@ -4,5 +4,16 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </p>
+
+  <p>
+    Associated with following Apps:<br /><br />
+    <%= hidden_field_tag "intent[app_ids][]", nil %>
+    <% App.all.each do |app| %>
+      <%= check_box_tag "intent[app_ids][]", app.id, 
+                        @intent.app_ids.include?(app.id), 
+                        id: dom_id(app) %>
+      <%= label_tag dom_id(app), app.name %><br>
+    <% end %>
+  </p> 
   <p><%= f.submit %></p>
 <% end %>
