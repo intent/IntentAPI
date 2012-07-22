@@ -1,0 +1,19 @@
+<% title "Parameters" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Content</th>
+  </tr>
+  <% for parameter in @parameters %>
+    <tr>
+      <td><%= parameter.name %></td>
+      <td><%= parameter.content %></td>
+      <td><%= link_to "Show", parameter %></td>
+      <td><%= link_to "Edit", edit_parameter_path(parameter) %></td>
+      <td><%= link_to "Destroy", parameter, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Parameter", new_parameter_path %></p>

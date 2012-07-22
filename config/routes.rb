@@ -1,5 +1,7 @@
 IOSIntent::Application.routes.draw do
 
+  resources :parameters
+
   resources :app_intent_data
   resources :intents
   resources :apps

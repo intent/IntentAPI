@@ -1,0 +1,16 @@
+<% title "Parameter" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @parameter.name %>
+</p>
+<p>
+  <strong>Content:</strong>
+  <%= @parameter.content %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_parameter_path(@parameter) %> |
+  <%= link_to "Destroy", @parameter, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", parameters_path %>
+</p>
