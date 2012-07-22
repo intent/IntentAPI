@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120721231646) do
+ActiveRecord::Schema.define(:version => 20120722141320) do
+
+  create_table "app_intent_data", :force => true do |t|
+    t.integer  "app_id"
+    t.integer  "intent_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "apps", :force => true do |t|
     t.string   "name"
@@ -19,11 +26,6 @@ ActiveRecord::Schema.define(:version => 20120721231646) do
     t.string   "url_prefix"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-  end
-
-  create_table "apps_intents", :id => false, :force => true do |t|
-    t.integer "app_id"
-    t.integer "intent_id"
   end
 
   create_table "intents", :force => true do |t|
