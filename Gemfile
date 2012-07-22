@@ -32,3 +32,5 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 
 gem "mocha", :group => :test
+
+gem "twitter-bootstrap-rails"
