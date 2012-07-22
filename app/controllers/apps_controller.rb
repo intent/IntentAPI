@@ -1,4 +1,9 @@
 class AppsController < ApplicationController
+  
+  # GET /app
+  # Returns list of all registered Apps
+  # Responds to both HTML and JSON formats.
+  # JSON format has not been strictly defined, so it returns all values
   def index
     @apps = App.prefix(params[:prefix])
     
@@ -8,14 +13,20 @@ class AppsController < ApplicationController
     end
   end
 
+  # GET /app/:id
+  # Returns specific App given :id parameter
   def show
     @app = App.find(params[:id])
   end
 
+  # GET /app/new
+  # Creates a new App instance, does not save yet
   def new
     @app = App.new
   end
 
+  # POST /app
+  # Takes the new App instance, saves it to database, redirects to App#show page
   def create
     @app = App.new(params[:app])
     if @app.save
@@ -25,10 +36,14 @@ class AppsController < ApplicationController
     end
   end
 
+  # GET /app/:id/edit
+  # Edit the App with particular :id passed in parameter
   def edit
     @app = App.find(params[:id])
   end
 
+  # POST /app/:id
+  # Updates the App being editing in App#edit(:id)
   def update
     @app = App.find(params[:id])
     if @app.update_attributes(params[:app])
@@ -38,6 +53,8 @@ class AppsController < ApplicationController
     end
   end
 
+  # DELETE /app/:id
+  # Destroys the App, redirects to App#Index
   def destroy
     @app = App.find(params[:id])
     @app.destroy

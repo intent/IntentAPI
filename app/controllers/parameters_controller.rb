@@ -1,4 +1,8 @@
 class ParametersController < ApplicationController
+  
+  # Review Apps_Controller for detailed documentation on each function call
+  # The same calls apply here to Parameters. Just basic CRUD.
+
   def index
     @parameters = Parameter.all
   end

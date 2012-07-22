@@ -1,4 +1,8 @@
 class IntentsController < ApplicationController
+
+  # Review Apps_Controller for detailed documentation on each function call
+  # The same calls apply here to Intents. Just basic CRUD.
+
   def index
     @intents = Intent.search(params[:name])
 

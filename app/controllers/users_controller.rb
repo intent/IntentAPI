@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_filter :login_required, :except => [:new, :create]
 
+  # TODO documentation needed
+
   def new
     @user = User.new
   end
