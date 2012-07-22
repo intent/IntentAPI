@@ -8,8 +8,13 @@ class AppIntentDatum < ActiveRecord::Base
 	  super(:only => [:name],
 	        :include => {
 	          :app => {:only => [:name, :description, :url_prefix]},
-	          :intent => {:only => [:name]}
+	          :intent => {:only => [:name]},
+	          :param_map => {:only => [:name, :content]}
 	        }
 	  )
+	end
+
+	def param_map
+		intent.parameters
 	end
 end

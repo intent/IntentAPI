@@ -8,9 +8,8 @@ class Intent < ActiveRecord::Base
 	def as_json(options={})
 	  super(:only => [:name],
 	        :include => {
-	          :apps => {:only => [:url_prefix]},
+	          :apps => {:only => [:url_prefix]}
 	        }
 	  )
 	end
-
 end
