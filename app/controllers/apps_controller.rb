@@ -1,6 +1,6 @@
 class AppsController < ApplicationController
   def index
-    @apps = App.all
+    @apps = App.prefix(params[:prefix])
     
     respond_to do |format|
       format.html

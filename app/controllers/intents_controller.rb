@@ -1,6 +1,11 @@
 class IntentsController < ApplicationController
   def index
-    @intents = Intent.all
+    @intents = Intent.search(params[:name])
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @intents }
+    end
   end
 
   def show
